@@ -21,6 +21,7 @@
 		097949AA2243084000AE79CC /* LeftSidePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949A92243084000AE79CC /* LeftSidePanelVC.swift */; };
 		097949AC2243095200AE79CC /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949AB2243095200AE79CC /* ContainerVC.swift */; };
 		097949AF22430D9E00AE79CC /* CenterVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949AE22430D9E00AE79CC /* CenterVCDelegate.swift */; };
+		097949B222443D3800AE79CC /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949B122443D3800AE79CC /* UIViewExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		097949A92243084000AE79CC /* LeftSidePanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeftSidePanelVC.swift; sourceTree = "<group>"; };
 		097949AB2243095200AE79CC /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		097949AE22430D9E00AE79CC /* CenterVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterVCDelegate.swift; sourceTree = "<group>"; };
+		097949B122443D3800AE79CC /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		11D79B080DE9BE03208BCE8C /* Pods-htchhkr-development.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-htchhkr-development.release.xcconfig"; path = "Pods/Target Support Files/Pods-htchhkr-development/Pods-htchhkr-development.release.xcconfig"; sourceTree = "<group>"; };
 		822EDF11430AEDF300DDEFF5 /* Pods-htchhkr-development.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-htchhkr-development.debug.xcconfig"; path = "Pods/Target Support Files/Pods-htchhkr-development/Pods-htchhkr-development.debug.xcconfig"; sourceTree = "<group>"; };
 		96E63F879E83F2768F938C3E /* Pods_htchhkr_development.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_htchhkr_development.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -77,6 +79,7 @@
 		0930581D224208DB00984C19 /* htchhkr-development */ = {
 			isa = PBXGroup;
 			children = (
+				097949B022443CCD00AE79CC /* Extensions */,
 				097949AD22430D3D00AE79CC /* Protocols */,
 				0979499E224242A100AE79CC /* Model */,
 				0979499D2242429300AE79CC /* View */,
@@ -125,6 +128,14 @@
 				097949AE22430D9E00AE79CC /* CenterVCDelegate.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		097949B022443CCD00AE79CC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				097949B122443D3800AE79CC /* UIViewExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		30F74DDF622BD798DE05C41A /* Frameworks */ = {
@@ -277,6 +288,7 @@
 				097949AA2243084000AE79CC /* LeftSidePanelVC.swift in Sources */,
 				097949A62242DC0800AE79CC /* CircleView.swift in Sources */,
 				097949AC2243095200AE79CC /* ContainerVC.swift in Sources */,
+				097949B222443D3800AE79CC /* UIViewExt.swift in Sources */,
 				09305821224208DB00984C19 /* HomeVC.swift in Sources */,
 				097949A22242D77E00AE79CC /* RoundImageView.swift in Sources */,
 				097949A42242DA1C00AE79CC /* RoundedShadowView.swift in Sources */,
