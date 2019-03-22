@@ -25,6 +25,7 @@
 		097949B42244561B00AE79CC /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949B32244561B00AE79CC /* LoginVC.swift */; };
 		097949BA2244DD7500AE79CC /* RoundedCornerTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949B92244DD7500AE79CC /* RoundedCornerTextField.swift */; };
 		097949BC224501A100AE79CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 097949BB224501A100AE79CC /* GoogleService-Info.plist */; };
+		097949BF2245069000AE79CC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949BE2245069000AE79CC /* DataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		097949B32244561B00AE79CC /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		097949B92244DD7500AE79CC /* RoundedCornerTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerTextField.swift; sourceTree = "<group>"; };
 		097949BB224501A100AE79CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		097949BE2245069000AE79CC /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		11D79B080DE9BE03208BCE8C /* Pods-htchhkr-development.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-htchhkr-development.release.xcconfig"; path = "Pods/Target Support Files/Pods-htchhkr-development/Pods-htchhkr-development.release.xcconfig"; sourceTree = "<group>"; };
 		822EDF11430AEDF300DDEFF5 /* Pods-htchhkr-development.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-htchhkr-development.debug.xcconfig"; path = "Pods/Target Support Files/Pods-htchhkr-development/Pods-htchhkr-development.debug.xcconfig"; sourceTree = "<group>"; };
 		96E63F879E83F2768F938C3E /* Pods_htchhkr_development.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_htchhkr_development.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 		0930581D224208DB00984C19 /* htchhkr-development */ = {
 			isa = PBXGroup;
 			children = (
+				097949BD2245064F00AE79CC /* Services */,
 				097949B022443CCD00AE79CC /* Extensions */,
 				097949AD22430D3D00AE79CC /* Protocols */,
 				0979499E224242A100AE79CC /* Model */,
@@ -145,6 +148,14 @@
 				097949B122443D3800AE79CC /* UIViewExt.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		097949BD2245064F00AE79CC /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				097949BE2245069000AE79CC /* DataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		30F74DDF622BD798DE05C41A /* Frameworks */ = {
@@ -294,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				097949AF22430D9E00AE79CC /* CenterVCDelegate.swift in Sources */,
+				097949BF2245069000AE79CC /* DataService.swift in Sources */,
 				097949A82242DECE00AE79CC /* RoundedShadowButton.swift in Sources */,
 				097949B42244561B00AE79CC /* LoginVC.swift in Sources */,
 				097949AA2243084000AE79CC /* LeftSidePanelVC.swift in Sources */,
