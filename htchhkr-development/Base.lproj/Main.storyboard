@@ -201,6 +201,7 @@
         <!--Left Side PanelVC-->
         <scene sceneID="bUO-AJ-fZ2">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFS-e0-E8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LeftSidePanelVC" id="Ww4-wU-NhY" customClass="LeftSidePanelVC" customModule="htchhkr_development" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dta-fF-4VH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -269,24 +270,76 @@
                                     <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="signUpLoginBtnWasPressed:" destination="Ww4-wU-NhY" eventType="touchUpInside" id="83q-g2-Wev"/>
+                                    <action selector="signUpLoginBtnWasPressed:" destination="Ww4-wU-NhY" eventType="touchUpInside" id="sNW-xv-D98"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-xN-cHc">
+                                <rect key="frame" x="20" y="466" width="200" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="lw7-fy-jSP">
+                                        <rect key="frame" x="0.0" y="0.0" width="189.66666666666666" height="58"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y82-WV-a2C">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PICKUP MODE ENAVLED" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iVX-Ob-jp0">
+                                                <rect key="frame" x="0.0" y="36" width="189.66666666666666" height="22"/>
+                                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sample-photo" translatesAutoresizingMaskIntoConstraints="NO" id="AUU-2P-jYD" customClass="RoundImageView" customModule="htchhkr_development" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="73" width="50" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="nLr-V6-Sb4"/>
+                                            <constraint firstAttribute="width" constant="50" id="nWb-Xe-q63"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="email@gmail.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaG-Jb-rvq">
+                                        <rect key="frame" x="0.0" y="138.33333333333337" width="146" height="24.666666666666657"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ACCOUNT TYPE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cv5-lN-fLE">
+                                        <rect key="frame" x="0.0" y="178" width="121.33333333333333" height="22"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="jho-WI-RLs"/>
+                                    <constraint firstAttribute="height" constant="200" id="nFc-b9-4h6"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="FOa-KV-Y9o" firstAttribute="bottom" secondItem="ZYd-Ko-RgQ" secondAttribute="bottom" constant="20" id="54B-Gn-AiJ"/>
                             <constraint firstItem="ZYd-Ko-RgQ" firstAttribute="leading" secondItem="FOa-KV-Y9o" secondAttribute="leading" constant="20" id="5as-WG-nTp"/>
+                            <constraint firstItem="ZYd-Ko-RgQ" firstAttribute="top" secondItem="1L9-xN-cHc" secondAttribute="bottom" constant="5" id="Fn4-d4-gUw"/>
                             <constraint firstItem="2J5-YS-GM5" firstAttribute="top" secondItem="APf-lv-fd0" secondAttribute="bottom" constant="20" id="L2L-hj-BLR"/>
                             <constraint firstItem="APf-lv-fd0" firstAttribute="top" secondItem="Dta-fF-4VH" secondAttribute="top" id="NvI-lk-Dqk"/>
+                            <constraint firstItem="1L9-xN-cHc" firstAttribute="leading" secondItem="FOa-KV-Y9o" secondAttribute="leading" constant="20" id="OOW-vB-sMa"/>
                             <constraint firstItem="2J5-YS-GM5" firstAttribute="leading" secondItem="FOa-KV-Y9o" secondAttribute="leading" constant="20" id="fnb-4g-KW5"/>
+                            <constraint firstAttribute="bottom" secondItem="1L9-xN-cHc" secondAttribute="bottom" constant="70" id="gKL-Jf-K8z"/>
                             <constraint firstItem="APf-lv-fd0" firstAttribute="leading" secondItem="FOa-KV-Y9o" secondAttribute="leading" id="pdR-jr-Xnj"/>
                             <constraint firstItem="APf-lv-fd0" firstAttribute="trailing" secondItem="FOa-KV-Y9o" secondAttribute="trailing" id="y5Q-2P-dVj"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FOa-KV-Y9o"/>
                     </view>
+                    <connections>
+                        <outlet property="loginOutBtn" destination="ZYd-Ko-RgQ" id="Zdr-aE-Ofo"/>
+                        <outlet property="pickupModeLbl" destination="iVX-Ob-jp0" id="Ayt-yF-WE6"/>
+                        <outlet property="pickupModeSwitch" destination="Y82-WV-a2C" id="zAd-a9-SAX"/>
+                        <outlet property="userAccountTypeLbl" destination="Cv5-lN-fLE" id="nMJ-Sg-eQd"/>
+                        <outlet property="userEmailLbl" destination="xaG-Jb-rvq" id="NsG-6P-QnG"/>
+                        <outlet property="userImageView" destination="AUU-2P-jYD" id="958-H8-QfK"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lFS-e0-E8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="885.50724637681162" y="133.69565217391306"/>
         </scene>
