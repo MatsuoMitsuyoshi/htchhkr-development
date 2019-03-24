@@ -107,14 +107,14 @@ extension HomeVC: MKMapViewDelegate {
 //            }
 //        }
 //    }
-//
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        if let annotation = annotation as? DriverAnnotation {
-//            let identifier = "driver"
-//            var view: MKAnnotationView
-//            view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            view.image = UIImage(named: ANNO_DRIVER)
-//            return view
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? DriverAnnotation {
+            let identifier = "driver"
+            var view: MKAnnotationView
+            view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.image = UIImage(named: "driverAnnotation")
+            return view
 //        } else if let annotation = annotation as? PassengerAnnotation {
 //            let identifier = "passenger"
 //            var view: MKAnnotationView
@@ -131,10 +131,10 @@ extension HomeVC: MKMapViewDelegate {
 //            }
 //            annotationView?.image = UIImage(named: ANNO_DESTINATION)
 //            return annotationView
-//        }
-//        return nil
-//    }
-//
+        }
+        return nil
+    }
+
 //    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
 //        centerMapBtn.fadeTo(alphaValue: 1.0, withDuration: 0.2)
 //    }
@@ -295,3 +295,4 @@ extension HomeVC: MKMapViewDelegate {
 //        }
     }
 }
+
