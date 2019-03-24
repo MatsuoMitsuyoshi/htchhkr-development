@@ -96,6 +96,9 @@
                                     <constraint firstAttribute="height" constant="60" id="EEP-th-deC"/>
                                 </constraints>
                                 <state key="normal" image="centerMapBtn"/>
+                                <connections>
+                                    <action selector="centerMapBtnWasPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VOG-MC-mD7"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RRC-z0-M4w" customClass="RoundedShadowView" customModule="htchhkr_development" customModuleProvider="target">
                                 <rect key="frame" x="20" y="88" width="374" height="90"/>
@@ -201,7 +204,6 @@
         <!--Left Side PanelVC-->
         <scene sceneID="bUO-AJ-fZ2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lFS-e0-E8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="LeftSidePanelVC" id="Ww4-wU-NhY" customClass="LeftSidePanelVC" customModule="htchhkr_development" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Dta-fF-4VH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
@@ -343,6 +345,7 @@
                         <outlet property="userImageView" destination="AUU-2P-jYD" id="958-H8-QfK"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lFS-e0-E8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="885.50724637681162" y="133.69565217391306"/>
         </scene>
