@@ -16,6 +16,7 @@ class HomeVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
+    @IBOutlet weak var centerMapBtn: UIButton!
     
     var delegate: CenterVCDelegate?
     
@@ -120,6 +121,7 @@ class HomeVC: UIViewController {
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         centerMapOnUserLocation()
+        centerMapBtn.fadeTo(alphaValue: 0.0, withDuration: 0.2)
     }
     
     @IBAction func menuBtnWasPressed(_ sender: Any) {
@@ -192,9 +194,9 @@ extension HomeVC: MKMapViewDelegate {
         return nil
     }
 
-//    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
-//        centerMapBtn.fadeTo(alphaValue: 1.0, withDuration: 0.2)
-//    }
+    func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
+        centerMapBtn.fadeTo(alphaValue: 1.0, withDuration: 0.2)
+    }
 //
 //    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
 //        let lineRenderer = MKPolylineRenderer(overlay: (self.route?.polyline)!)
