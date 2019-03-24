@@ -10,6 +10,10 @@ import UIKit
 import Firebase
 
 class LeftSidePanelVC: UIViewController {
+    
+    let appDelegate = AppDelegate.getAppDelegate()
+    
+    let currentUserId = Auth.auth().currentUser?.uid
 
     @IBOutlet weak var pickupModeSwitch: UISwitch!
     @IBOutlet weak var pickupModeLbl: UILabel!
@@ -72,7 +76,18 @@ class LeftSidePanelVC: UIViewController {
             }
         })
     }
-    
+
+    @IBAction func switchWasToggled(_ sender: Any) {
+        if pickupModeSwitch.isOn {
+            pickupModeLbl.text = "PICKUP MODE ENABLED"
+            appDelegate.MenuContainerVC.toggleLeftPanel()
+        DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["isPickupModeEnabled": true])
+        } else {
+            pickupModeLbl.text = "PICKUP MODE DISABLED"
+            appDelegate.MenuContainerVC.toggleLeftPanel()
+        DataService.instance.REF_DRIVERS.child(currentUserId!).updateChildValues(["isPickupModeEnabled": false])
+        }
+    }
 
     @IBAction func signUpLoginBtnWasPressed(_ sender: Any) {
         if Auth.auth().currentUser == nil {

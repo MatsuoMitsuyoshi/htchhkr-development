@@ -36,62 +36,63 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         dismiss(animated: true, completion: nil)
     }
     
-//    @IBAction func authBtnWasPressed(_ sender: Any) {
-//        if emailField.text != nil && passwordField.text != nil {
-//            authBtn.animateButton(shouldLoad: true, withMessage: nil)
-//            self.view.endEditing(true)
-//
-//            if let email = emailField.text, let password = passwordField.text {
-//                Auth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
-//                    if error == nil {
-//                        if let user = user {
-//                            if self.segmentedControl.selectedSegmentIndex == 0 {
-//                                let userData = ["provider": user.providerID] as [String: Any]
-//                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
-//                            } else {
-//                                let userData = ["provider": user.providerID, "userIsDriver": true, "isPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
-//                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
-//                            }
-//                        }
-//                        print("Email user authenticated successfully with Firebase")
-//                        self.dismiss(animated: true, completion: nil)
-//                    } else {
-//                        if let errorCode = AuthErrorCode(rawValue: error!._code) {
-//                            switch errorCode {
-//                                case .errorCodeWrongPassword:
-//                                    print("Whoops! That was the wrong password!")
-//                                default:
-//                                    print("An unexpected error occurred. Please try again.")
-//                            }
-//                        }
-//
-//                        Auth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
-//                            if error != nil {
-//                                if let errorCode = AuthErrorCode(rawValue: error!._code) {
-//                                    switch errorCode {
-//                                        case .errorCodeInvalidEmail:
-//                                            print("Email invalid. Please try again.")
-//                                        default:
-//                                            print("An unexpected error occurred. Please try again.")
-//                                    }
-//                                }
-//                            } else {
-//                                if let user = user {
-//                                    if self.segmentedControl.selectedSegmentIndex == 0 {
-//                                        let userData = ["provider": user.providerID] as [String: Any]
-//                                        DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
-//                                    } else {
-//                                        let userData = ["provider": user.providerID, "userIsDriver": true, "isPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
-//                                        DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
-//                                    }
-//                                }
-//                                print("Successfully created a new user with Firebase")
-//                                self.dismiss(animated: true, completion: nil)
-//                            }
-//                        })
-//                    }
-//                })
-//            }
-//        }
-//    }
+    @IBAction func authBtnWasPressed(_ sender: Any) {
+        if emailField.text != nil && passwordField.text != nil {
+            authBtn.animaiteButton(shouldLoad: true, withMessage: nil)
+            self.view.endEditing(true)
+
+
+            if let email = emailField.text, let password = passwordField.text {
+                Auth.auth().signIn(withEmail: email, password: password, completion: { (authResult, error) in
+                    if error == nil {
+                        if let user = authResult?.user {
+                            if self.segmentedControl.selectedSegmentIndex == 0 {
+                                let userData = ["provider": user.providerID] as [String: Any]
+                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
+                            } else {
+                                let userData = ["provider": user.providerID, "userIsDriver": true, "isPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
+                                DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
+                            }
+                        }
+                        print("Email user authenticated successfully with Firebase")
+                        self.dismiss(animated: true, completion: nil)
+                    } else {
+                        if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                            switch errorCode {
+                                case .wrongPassword:
+                                    print("Whoops! That was the wrong password!")
+                                default:
+                                    print("An unexpected error occurred. Please try again.")
+                            }
+                        }
+
+                        Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+                            if error != nil {
+                                if let errorCode = AuthErrorCode(rawValue: error!._code) {
+                                    switch errorCode {
+                                        case .invalidEmail:
+                                            print("Email invalid. Please try again.")
+                                        default:
+                                            print("An unexpected error occurred. Please try again.")
+                                    }
+                                }
+                            } else {
+                                if let user = authResult?.user {
+                                    if self.segmentedControl.selectedSegmentIndex == 0 {
+                                        let userData = ["provider": user.providerID] as [String: Any]
+                                        DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
+                                    } else {
+                                        let userData = ["provider": user.providerID, "userIsDriver": true, "isPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
+                                        DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
+                                    }
+                                }
+                                print("Successfully created a new user with Firebase")
+                                self.dismiss(animated: true, completion: nil)
+                            }
+                        })
+                    }
+                })
+            }
+        }
+    }
 }
