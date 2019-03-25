@@ -17,6 +17,8 @@ class HomeVC: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var actionBtn: RoundedShadowButton!
     @IBOutlet weak var centerMapBtn: UIButton!
+    @IBOutlet weak var destinationTextField: UITextField!
+    @IBOutlet weak var destinationCircle: CircleView!
     
     var delegate: CenterVCDelegate?
     
@@ -25,6 +27,7 @@ class HomeVC: UIViewController {
     var regionRadius: CLLocationDistance = 1000
     
     let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "launchScreenIcon")!, iconInitialSize: CGSize(width: 80, height: 80), backgroundColor: UIColor.white)
+    var tableView = UITableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +37,10 @@ class HomeVC: UIViewController {
         manager?.desiredAccuracy = kCLLocationAccuracyBest
 
         checkLocationAuthStatus()
-        
+
         mapView.delegate = self
-        
+        destinationTextField.delegate = self
+
         centerMapOnUserLocation()
         
         DataService.instance.REF_DRIVERS.observe(.value, with: { (snapshot) in
@@ -121,7 +125,7 @@ class HomeVC: UIViewController {
     
     @IBAction func centerMapBtnWasPressed(_ sender: Any) {
         centerMapOnUserLocation()
-        centerMapBtn.fadeTo(alphaValue: 0.0, withDuration: 0.2)
+//        centerMapBtn.fadeTo(alphaValue: 0.0, withDuration: 0.2)
     }
     
     @IBAction func menuBtnWasPressed(_ sender: Any) {
@@ -355,3 +359,137 @@ extension HomeVC: MKMapViewDelegate {
     }
 }
 
+extension HomeVC: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == destinationTextField {
+            tableView.frame = CGRect(x: 20, y: view.frame.height, width: view.frame.width - 40, height: view.frame.height - 200)
+            tableView.layer.cornerRadius = 5.0
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "locationCell")
+            
+            tableView.delegate = self
+            tableView.dataSource = self
+            
+            tableView.tag = 18
+            tableView.rowHeight = 60
+            
+            view.addSubview(tableView)
+            animateTableView(shouldShow: true)
+
+            UIView.animate(withDuration: 0.2, animations: {
+                self.destinationCircle.backgroundColor = UIColor.red
+                self.destinationCircle.borderColor = UIColor.init(red: 199/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            })
+        }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == destinationTextField {
+//            performSearch()
+//            shouldPresentLoadingView(true)
+            view.endEditing(true)
+        }
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == destinationTextField {
+            if destinationTextField.text == "" {
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.destinationCircle.backgroundColor = UIColor.lightGray
+                    self.destinationCircle.borderColor = UIColor.darkGray
+                })
+            }
+        }
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+//        matchingItems = []
+//        tableView.reloadData()
+//
+//        DataService.instance.REF_USERS.child(currentUserId!).child(TRIP_COORDINATE).removeValue()
+//
+//        mapView.removeOverlays(mapView.overlays)
+//        for annotation in mapView.annotations {
+//            if let annotation = annotation as? MKPointAnnotation {
+//                mapView.removeAnnotation(annotation)
+//            } else if annotation.isKind(of: PassengerAnnotation.self) {
+//                mapView.removeAnnotation(annotation)
+//            }
+//        }
+//
+        centerMapOnUserLocation()
+        return true
+    }
+    
+    func animateTableView(shouldShow: Bool) {
+        if shouldShow {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tableView.frame = CGRect(x: 20, y: 200, width: self.view.frame.width - 40, height: self.view.frame.height - 200)
+            })
+        } else {
+            UIView.animate(withDuration: 0.2, animations: {
+                self.tableView.frame = CGRect(x: 20, y: self.view.frame.height, width: self.view.frame.width - 40, height: self.view.frame.height - 200)
+            }, completion: { (finished) in
+                for subview in self.view.subviews {
+                    if subview.tag == 18 {
+                        subview.removeFromSuperview()
+                    }
+                }
+            })
+        }
+    }
+}
+
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+//        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "locationCell")
+//        let mapItem = matchingItems[indexPath.row]
+//        cell.textLabel?.text = mapItem.name
+//        cell.detailTextLabel?.text = mapItem.placemark.title
+//        return cell
+    }
+//
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+//
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+//        return matchingItems.count
+    }
+//
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        animateTableView(shouldShow: false)
+        print("selected!")
+//
+//        shouldPresentLoadingView(true)
+//
+//        let passengerCoordinate = manager?.location?.coordinate
+//
+//        let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate!, key: currentUserId!)
+//        mapView.addAnnotation(passengerAnnotation)
+//
+//        destinationTextField.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
+//
+//        let selectedMapItem = matchingItems[indexPath.row]
+//
+//        DataService.instance.REF_USERS.child(currentUserId!).updateChildValues([TRIP_COORDINATE: [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
+//
+//        dropPinFor(placemark: selectedMapItem.placemark)
+//
+//        searchMapKitForResultsWithPolyline(forOriginMapItem: nil, withDestinationMapItem: selectedMapItem)
+//
+//        animateTableView(shouldShow: false)
+    }
+//
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        view.endEditing(true)
+//    }
+//
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        if destinationTextField.text == "" {
+//            animateTableView(shouldShow: false)
+//        }
+//    }
+}
