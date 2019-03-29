@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02E7464F53CCB640B799BBE8 /* Pods_htchhkr_development.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E63F879E83F2768F938C3E /* Pods_htchhkr_development.framework */; };
+		090F6631224DD9A9007DE8F4 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */; };
 		0930581F224208DB00984C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0930581E224208DB00984C19 /* AppDelegate.swift */; };
 		09305821224208DB00984C19 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09305820224208DB00984C19 /* HomeVC.swift */; };
 		09305824224208DB00984C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09305822224208DB00984C19 /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		0930581B224208DB00984C19 /* htchhkr-development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "htchhkr-development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0930581E224208DB00984C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09305820224208DB00984C19 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				097949B122443D3800AE79CC /* UIViewExt.swift */,
+				090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 			files = (
 				097949AF22430D9E00AE79CC /* CenterVCDelegate.swift in Sources */,
 				097949BF2245069000AE79CC /* DataService.swift in Sources */,
+				090F6631224DD9A9007DE8F4 /* UIViewControllerExt.swift in Sources */,
 				097949A82242DECE00AE79CC /* RoundedShadowButton.swift in Sources */,
 				097949B42244561B00AE79CC /* LoginVC.swift in Sources */,
 				097949AA2243084000AE79CC /* LeftSidePanelVC.swift in Sources */,

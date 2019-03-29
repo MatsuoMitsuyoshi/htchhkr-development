@@ -196,7 +196,7 @@ extension HomeVC: MKMapViewDelegate {
         lineRenderer.lineWidth = 3
 //        lineRenderer.lineDashPattern =
         
-//        shouldPresentLoadingView(false)
+        shouldPresentLoadingView(false)
         
         return lineRenderer
     }
@@ -218,7 +218,7 @@ extension HomeVC: MKMapViewDelegate {
                 for mapItem in response!.mapItems {
                     self.matchingItems.append(mapItem as MKMapItem)
                     self.tableView.reloadData()
-//                    self.shouldPresentLoadingView(false)
+                    self.shouldPresentLoadingView(false)
                 }
             }
         }
@@ -265,6 +265,8 @@ extension HomeVC: MKMapViewDelegate {
             
             self.mapView.addOverlay(self.route!.polyline)
             
+            self.shouldPresentLoadingView(false)
+            
 //            self.zoom(toFitAnnotationsFromMapView: self.mapView, forActiveTripWithDriver: false, withKey: nil)
 //
 //            let delegate = AppDelegate.getAppDelegate()
@@ -299,6 +301,7 @@ extension HomeVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == destinationTextField {
             performSearch()
+            shouldPresentLoadingView(true)
             view.endEditing(true)
         }
         return true
@@ -318,6 +321,17 @@ extension HomeVC: UITextFieldDelegate {
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         matchingItems = []
         tableView.reloadData()
+
+        DataService.instance.REF_USERS.child(currentUserId!).child("tripCoordinate").removeValue()
+        
+        mapView.removeOverlays(mapView.overlays)
+        for annotation in mapView.annotations {
+            if let annotation = annotation as? MKPointAnnotation {
+                mapView.removeAnnotation(annotation)
+            } else if annotation.isKind(of: PassengerAnnotation.self) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
 
         centerMapOnUserLocation()
         return true
@@ -361,6 +375,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
+        shouldPresentLoadingView(true)
+        
         let passengerCoordinate = manager?.location?.coordinate
         
         let passengerAnnotation = PassengerAnnotation(coordinate: passengerCoordinate!, key: currentUserId!)
@@ -369,7 +385,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         destinationTextField.text = tableView.cellForRow(at: indexPath)?.textLabel?.text
 
         let selectedMapItem = matchingItems[indexPath.row]
-    DataService.instance.REF_USERS.child(currentUserId!).updateChildValues(["tripCoordinate": [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
+        
+        DataService.instance.REF_USERS.child(currentUserId!).updateChildValues(["tripCoordinate": [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
         
         dropPinFor(placemark: selectedMapItem.placemark)
         
