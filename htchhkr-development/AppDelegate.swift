@@ -20,10 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return containerVC
     }
 
+    override init() {
+        super .init()
+        FirebaseApp.configure()
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        FirebaseApp.configure()
-
         containerVC = ContainerVC()
         
         window?.rootViewController = containerVC

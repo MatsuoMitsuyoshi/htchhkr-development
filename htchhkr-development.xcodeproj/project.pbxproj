@@ -28,6 +28,7 @@
 		097949BF2245069000AE79CC /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949BE2245069000AE79CC /* DataService.swift */; };
 		097949C12247B1DE00AE79CC /* UpdateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949C02247B1DE00AE79CC /* UpdateService.swift */; };
 		097949C32247E3E400AE79CC /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097949C22247E3E400AE79CC /* DriverAnnotation.swift */; };
+		09F9CFA5224CCD5900F27790 /* PassengerAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F9CFA4224CCD5900F27790 /* PassengerAnnotation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		097949BE2245069000AE79CC /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		097949C02247B1DE00AE79CC /* UpdateService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateService.swift; sourceTree = "<group>"; };
 		097949C22247E3E400AE79CC /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
+		09F9CFA4224CCD5900F27790 /* PassengerAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassengerAnnotation.swift; sourceTree = "<group>"; };
 		11D79B080DE9BE03208BCE8C /* Pods-htchhkr-development.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-htchhkr-development.release.xcconfig"; path = "Pods/Target Support Files/Pods-htchhkr-development/Pods-htchhkr-development.release.xcconfig"; sourceTree = "<group>"; };
 		822EDF11430AEDF300DDEFF5 /* Pods-htchhkr-development.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-htchhkr-development.debug.xcconfig"; path = "Pods/Target Support Files/Pods-htchhkr-development/Pods-htchhkr-development.debug.xcconfig"; sourceTree = "<group>"; };
 		96E63F879E83F2768F938C3E /* Pods_htchhkr_development.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_htchhkr_development.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +130,7 @@
 				097949A52242DC0800AE79CC /* CircleView.swift */,
 				097949A72242DECE00AE79CC /* RoundedShadowButton.swift */,
 				097949B92244DD7500AE79CC /* RoundedCornerTextField.swift */,
+				09F9CFA4224CCD5900F27790 /* PassengerAnnotation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				097949AA2243084000AE79CC /* LeftSidePanelVC.swift in Sources */,
 				097949A62242DC0800AE79CC /* CircleView.swift in Sources */,
 				097949AC2243095200AE79CC /* ContainerVC.swift in Sources */,
+				09F9CFA5224CCD5900F27790 /* PassengerAnnotation.swift in Sources */,
 				097949B222443D3800AE79CC /* UIViewExt.swift in Sources */,
 				097949C32247E3E400AE79CC /* DriverAnnotation.swift in Sources */,
 				09305821224208DB00984C19 /* HomeVC.swift in Sources */,
