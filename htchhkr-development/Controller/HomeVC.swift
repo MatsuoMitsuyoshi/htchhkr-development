@@ -34,8 +34,8 @@ class HomeVC: UIViewController {
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
 //    var route: MKRoute?
-//
-//    var selectedItemPlacemark: MKPlacemark? = nil
+
+    var selectedItemPlacemark: MKPlacemark? = nil
 //
 //    var actionForButton: ButtonAction = .requestRide
 
@@ -172,6 +172,16 @@ extension HomeVC: MKMapViewDelegate {
             view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.image = UIImage(named: "currentLocationAnnotation")
             return view
+        } else if let annotation = annotation as? MKPointAnnotation {
+            let identifier = "destination"
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            if annotationView == nil {
+                annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            } else {
+                annotationView?.annotation = annotation
+            }
+            annotationView?.image = UIImage(named: "destinationAnnotation")
+            return annotationView
         }
         return nil
     }
@@ -201,6 +211,21 @@ extension HomeVC: MKMapViewDelegate {
                 }
             }
         }
+    }
+    
+    // 行き先にピンを打つ
+    func dropPinFor(placemark: MKPlacemark) {
+        selectedItemPlacemark = placemark
+        
+        for annotation in mapView.annotations {
+            if annotation.isKind(of: MKPointAnnotation.self) {
+                mapView.removeAnnotation(annotation)
+            }
+        }
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        mapView.addAnnotation(annotation)
     }
 }
 
@@ -302,6 +327,10 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         let selectedMapItem = matchingItems[indexPath.row]
     DataService.instance.REF_USERS.child(currentUserId!).updateChildValues(["tripCoordinate": [selectedMapItem.placemark.coordinate.latitude, selectedMapItem.placemark.coordinate.longitude]])
         
+        dropPinFor(placemark: selectedMapItem.placemark)
+        
+//        searchMapKitForResultsWithPolyline(forOriginMapItem: nil, withDestinationMapItem: selectedMapItem)
+
         animateTableView(shouldShow: false)
         print("selected!")
     }
