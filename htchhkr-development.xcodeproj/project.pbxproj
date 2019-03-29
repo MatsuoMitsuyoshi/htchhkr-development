@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02E7464F53CCB640B799BBE8 /* Pods_htchhkr_development.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E63F879E83F2768F938C3E /* Pods_htchhkr_development.framework */; };
 		090F6631224DD9A9007DE8F4 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */; };
+		090F6633224DF5A9007DE8F4 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F6632224DF5A9007DE8F4 /* Alertable.swift */; };
 		0930581F224208DB00984C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0930581E224208DB00984C19 /* AppDelegate.swift */; };
 		09305821224208DB00984C19 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09305820224208DB00984C19 /* HomeVC.swift */; };
 		09305824224208DB00984C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09305822224208DB00984C19 /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
+		090F6632224DF5A9007DE8F4 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
 		0930581B224208DB00984C19 /* htchhkr-development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "htchhkr-development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0930581E224208DB00984C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09305820224208DB00984C19 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				097949AE22430D9E00AE79CC /* CenterVCDelegate.swift */,
+				090F6632224DF5A9007DE8F4 /* Alertable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				09F9CFA5224CCD5900F27790 /* PassengerAnnotation.swift in Sources */,
 				097949B222443D3800AE79CC /* UIViewExt.swift in Sources */,
 				097949C32247E3E400AE79CC /* DriverAnnotation.swift in Sources */,
+				090F6633224DF5A9007DE8F4 /* Alertable.swift in Sources */,
 				09305821224208DB00984C19 /* HomeVC.swift in Sources */,
 				097949C12247B1DE00AE79CC /* UpdateService.swift in Sources */,
 				097949A22242D77E00AE79CC /* RoundImageView.swift in Sources */,
