@@ -33,7 +33,7 @@ class HomeVC: UIViewController {
     
     var matchingItems: [MKMapItem] = [MKMapItem]()
     
-//    var route: MKRoute?
+    var route: MKRoute?
 
     var selectedItemPlacemark: MKPlacemark? = nil
 //
@@ -189,7 +189,18 @@ extension HomeVC: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, regionWillChangeAnimated animated: Bool) {
         centerMapBtn.fadeTo(alphaValue: 1.0, withDuration: 0.2)
     }
-    
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let lineRenderer = MKPolylineRenderer(overlay: (self.route?.polyline)!)
+        lineRenderer.strokeColor = UIColor(red: 216/255, green: 71/255, blue: 30/255, alpha: 0.75)
+        lineRenderer.lineWidth = 3
+//        lineRenderer.lineDashPattern =
+        
+//        shouldPresentLoadingView(false)
+        
+        return lineRenderer
+    }
+
     func performSearch() {
         matchingItems.removeAll()
         let request = MKLocalSearch.Request()
@@ -226,6 +237,39 @@ extension HomeVC: MKMapViewDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = placemark.coordinate
         mapView.addAnnotation(annotation)
+    }
+    
+    // 現在地から行き先までのルートを表示
+    func searchMapKitForResultsWithPolyline(forOriginMapItem originMapItem: MKMapItem?, withDestinationMapItem destinationMapItem: MKMapItem) {
+        let request = MKDirections.Request()
+        
+        if originMapItem == nil {
+            request.source = MKMapItem.forCurrentLocation()
+        } else {
+            request.source = originMapItem
+        }
+        
+        request.destination = destinationMapItem
+        request.transportType = MKDirectionsTransportType.automobile
+        request.requestsAlternateRoutes = true
+        
+        let directions = MKDirections(request: request)
+        
+        directions.calculate { (response, error) in
+            guard let response = response else {
+//                self.showAlert(error.debugDescription)
+                print(error.debugDescription)
+                return
+            }
+            self.route = response.routes[0]
+            
+            self.mapView.addOverlay(self.route!.polyline)
+            
+//            self.zoom(toFitAnnotationsFromMapView: self.mapView, forActiveTripWithDriver: false, withKey: nil)
+//
+//            let delegate = AppDelegate.getAppDelegate()
+//            delegate.window?.rootViewController?.shouldPresentLoadingView(false)
+        }
     }
 }
 
@@ -329,7 +373,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         dropPinFor(placemark: selectedMapItem.placemark)
         
-//        searchMapKitForResultsWithPolyline(forOriginMapItem: nil, withDestinationMapItem: selectedMapItem)
+        searchMapKitForResultsWithPolyline(forOriginMapItem: nil, withDestinationMapItem: selectedMapItem)
 
         animateTableView(shouldShow: false)
         print("selected!")
