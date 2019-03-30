@@ -10,6 +10,8 @@
 		02E7464F53CCB640B799BBE8 /* Pods_htchhkr_development.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96E63F879E83F2768F938C3E /* Pods_htchhkr_development.framework */; };
 		090F6631224DD9A9007DE8F4 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */; };
 		090F6633224DF5A9007DE8F4 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F6632224DF5A9007DE8F4 /* Alertable.swift */; };
+		090F6639224E0CB2007DE8F4 /* PickupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F6638224E0CB2007DE8F4 /* PickupVC.swift */; };
+		090F663B224E0E67007DE8F4 /* RoundMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090F663A224E0E67007DE8F4 /* RoundMapView.swift */; };
 		0930581F224208DB00984C19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0930581E224208DB00984C19 /* AppDelegate.swift */; };
 		09305821224208DB00984C19 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09305820224208DB00984C19 /* HomeVC.swift */; };
 		09305824224208DB00984C19 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09305822224208DB00984C19 /* Main.storyboard */; };
@@ -36,6 +38,8 @@
 /* Begin PBXFileReference section */
 		090F6630224DD9A9007DE8F4 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		090F6632224DF5A9007DE8F4 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		090F6638224E0CB2007DE8F4 /* PickupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupVC.swift; sourceTree = "<group>"; };
+		090F663A224E0E67007DE8F4 /* RoundMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundMapView.swift; sourceTree = "<group>"; };
 		0930581B224208DB00984C19 /* htchhkr-development.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "htchhkr-development.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0930581E224208DB00984C19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09305820224208DB00984C19 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				097949AB2243095200AE79CC /* ContainerVC.swift */,
 				097949B32244561B00AE79CC /* LoginVC.swift */,
 				097949C22247E3E400AE79CC /* DriverAnnotation.swift */,
+				090F6638224E0CB2007DE8F4 /* PickupVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 				097949A72242DECE00AE79CC /* RoundedShadowButton.swift */,
 				097949B92244DD7500AE79CC /* RoundedCornerTextField.swift */,
 				09F9CFA4224CCD5900F27790 /* PassengerAnnotation.swift */,
+				090F663A224E0E67007DE8F4 /* RoundMapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -333,6 +339,8 @@
 				090F6633224DF5A9007DE8F4 /* Alertable.swift in Sources */,
 				09305821224208DB00984C19 /* HomeVC.swift in Sources */,
 				097949C12247B1DE00AE79CC /* UpdateService.swift in Sources */,
+				090F6639224E0CB2007DE8F4 /* PickupVC.swift in Sources */,
+				090F663B224E0E67007DE8F4 /* RoundMapView.swift in Sources */,
 				097949A22242D77E00AE79CC /* RoundImageView.swift in Sources */,
 				097949A42242DA1C00AE79CC /* RoundedShadowView.swift in Sources */,
 				097949BA2244DD7500AE79CC /* RoundedCornerTextField.swift in Sources */,
