@@ -232,7 +232,6 @@ extension HomeVC: MKMapViewDelegate {
         let lineRenderer = MKPolylineRenderer(overlay: (self.route?.polyline)!)
         lineRenderer.strokeColor = UIColor(red: 216/255, green: 71/255, blue: 30/255, alpha: 0.75)
         lineRenderer.lineWidth = 3
-//        lineRenderer.lineDashPattern =
         
         shouldPresentLoadingView(false)
         
