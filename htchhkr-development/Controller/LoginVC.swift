@@ -38,7 +38,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
     
     @IBAction func authBtnWasPressed(_ sender: Any) {
         if emailField.text != nil && passwordField.text != nil {
-            authBtn.animaiteButton(shouldLoad: true, withMessage: nil)
+            authBtn.animateButton(shouldLoad: true, withMessage: nil)
             self.view.endEditing(true)
 
 
@@ -50,19 +50,18 @@ class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
                                 let userData = ["provider": user.providerID] as [String: Any]
                                 DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
                             } else {
-                                let userData = ["provider": user.providerID, "userIsDriver": true, "isPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
+                                let userData = ["provider": user.providerID, USER_IS_DRIVER: true, ACCOUNT_PICKUP_MODE_ENABLED: false, DRIVER_IS_ON_TRIP: false] as [String: Any]
                                 DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
                             }
                         }
-                        print("Email user authenticated successfully with Firebase")
                         self.dismiss(animated: true, completion: nil)
                     } else {
                         if let errorCode = AuthErrorCode(rawValue: error!._code) {
                             switch errorCode {
                                 case .wrongPassword:
-                                    self.showAlert("Whoops! That was the wrong password!")
+                                    self.showAlert(ERROR_MSG_WRONG_PASSWORD)
                                 default:
-                                    self.showAlert("An unexpected error occurred. Please try again.")
+                                    self.showAlert(ERROR_MSG_UNEXPECTED_ERROR)
                             }
                         }
 
@@ -71,9 +70,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
                                 if let errorCode = AuthErrorCode(rawValue: error!._code) {
                                     switch errorCode {
                                         case .invalidEmail:
-                                            self.showAlert("Email invalid. Please try again.")
+                                            self.showAlert(ERROR_MSG_INVALID_EMAIL)
                                         default:
-                                            self.showAlert("An unexpected error occurred. Please try again.")
+                                            self.showAlert(ERROR_MSG_UNEXPECTED_ERROR)
                                     }
                                 }
                             } else {
@@ -82,11 +81,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, Alertable {
                                         let userData = ["provider": user.providerID] as [String: Any]
                                         DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: false)
                                     } else {
-                                        let userData = ["provider": user.providerID, "userIsDriver": true, "isPickupModeEnabled": false, "driverIsOnTrip": false] as [String: Any]
+                                        let userData = ["provider": user.providerID, USER_IS_DRIVER: true, ACCOUNT_PICKUP_MODE_ENABLED: false, DRIVER_IS_ON_TRIP: false] as [String: Any]
                                         DataService.instance.createFirebaseDBUser(uid: user.uid, userData: userData, isDriver: true)
                                     }
                                 }
-                                print("Successfully created a new user with Firebase")
                                 self.dismiss(animated: true, completion: nil)
                             }
                         })
